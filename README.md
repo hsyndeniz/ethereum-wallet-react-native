@@ -1,4 +1,4 @@
-# React Native EEthereum Wallet
+# React Native Ethereum Wallet
 
 React Native Ethereum Wallet
 
