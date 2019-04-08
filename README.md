@@ -5,8 +5,8 @@ React Native Ethereum Wallet
 ### Installation 
 
 ```
-$ git clone https://github.com/hsynran/react-native-web3-boilerplate.git
-$ cd react-native-web3-boilerplate
+$ git clone https://github.com/hsynran/ethereum-wallet-react-native.git
+$ cd ethereum-wallet-react-native
 $ npm install
 $ npm run ios || npm run android
 ```
