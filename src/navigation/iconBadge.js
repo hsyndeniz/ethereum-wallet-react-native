@@ -22,7 +22,7 @@ export default class IconWithBadge extends React.Component {
               justifyContent: 'center',
               alignItems: 'center'
             }}>
-              <Text style={{ color: 'white', fontSize: 10, fontWeight: 'bold' }}>{badgeCount}</Text>
+              <Text style={{ color: color, fontSize: 10, fontWeight: 'bold' }}>{badgeCount}</Text>
             </View>
           )}
         </View>

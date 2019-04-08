@@ -40,7 +40,7 @@ export const AppNavigator = createBottomTabNavigator({
             if(focused) {
                 return (<IconWithBadge size={25} color={'#4F8EF7'} name={iconName} badgeCount={3} />)
             } else {
-                return (<IconWithBadge size={25} color={'gray'} name={iconName} badgeCount={3} />)
+                return (<IconWithBadge size={25} color={'#fff'} name={iconName} badgeCount={3} />)
             }
         } else if (routeName === 'ETHWallet') {
             iconName = `ios-wallet${focused ? '' : ''}`;

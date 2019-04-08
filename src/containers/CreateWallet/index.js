@@ -10,7 +10,7 @@ class CreateWallet extends Component {
 
   render() {
     return (
-      <SafeAreaView>
+      <SafeAreaView style={{ backgroundColor: '#0A0F24', flex: 1 }}>
         <Text> CreateW allet </Text>
       </SafeAreaView>
     );

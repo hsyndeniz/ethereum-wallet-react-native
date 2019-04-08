@@ -10,7 +10,7 @@ class ETHWallet extends Component {
 
   render() {
     return (
-      <SafeAreaView>
+      <SafeAreaView style={{ backgroundColor: '#0A0F24', flex: 1 }}>
         <Text> textInComponent </Text>
       </SafeAreaView>
     );
