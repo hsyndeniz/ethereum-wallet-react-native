@@ -38,7 +38,7 @@ export const AppNavigator = createBottomTabNavigator({
             // Sometimes we want to add badges to some icons. 
             // You can check the implementation below.
             if(focused) {
-                return (<IconWithBadge size={25} color={'tomato'} name={iconName} badgeCount={3} />)
+                return (<IconWithBadge size={25} color={'#4F8EF7'} name={iconName} badgeCount={3} />)
             } else {
                 return (<IconWithBadge size={25} color={'gray'} name={iconName} badgeCount={3} />)
             }
@@ -54,9 +54,12 @@ export const AppNavigator = createBottomTabNavigator({
         },
     }),
     tabBarOptions: {
-        activeTintColor: 'tomato',
-        inactiveTintColor: 'gray',
-    },
+        activeTintColor: '#4F8EF7',
+        inactiveTintColor: '#fff',
+        style: {
+          backgroundColor: '#0A0F24',
+        }
+      },
 });
 
 export default createAppContainer(AppNavigator);
