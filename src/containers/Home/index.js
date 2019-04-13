@@ -92,11 +92,11 @@ class Home extends Component {
 
           <Card.Body style={styles.accountCard} >
             <View style={{ flexDirection: 'row', alignItems: 'center' }} >
-              <TouchableOpacity style={styles.sendButton} onPress={() => this.props.navigation.navigate('SendMCC', { account: this.state.account, ETHBalance: this.state.ETHBalance })}>
+              <TouchableOpacity style={styles.sendButton} onPress={() => this.props.navigation.navigate('SendETH', { account: this.state.account, ETHBalance: this.state.ETHBalance })}>
                 <Text style={{ fontSize: 17, color: '#E5BF30', fontWeight: '600', top: 4 }}>     Send  </Text>
                 <Icon name="send" size={28} color="#E5BF30" />
               </TouchableOpacity>
-              <TouchableOpacity style={styles.receiveButton} onPress={() => this.props.navigation.navigate('QRCodeGenerator', { account: this.state.account })}>
+              <TouchableOpacity style={styles.receiveButton} onPress={() => this.props.navigation.navigate('ETHWallet', { account: this.state.account })}>
                 <Text style={{ fontSize: 17, color: '#fff', fontWeight: '600', top: 4 }}>  Receive  </Text>
                 <Icon name="qrcode" size={28} color="#fff" />
               </TouchableOpacity>

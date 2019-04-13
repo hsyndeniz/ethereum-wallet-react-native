@@ -1,5 +1,5 @@
 
-import { createBottomTabNavigator, createAppContainer, createStackNavigator } from "react-navigation";
+import { createBottomTabNavigator, createAppContainer } from "react-navigation";
 import React from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import IconWithBadge from './iconBadge';
@@ -7,18 +7,20 @@ import ETHWallet from '../containers/ETHWallet';
 import Browser from '../containers/Browser';
 import Home from '../containers/Home';
 import Settings from "../containers/Settings";
+import SendETH from "../containers/SendETH";
 
 const ETHWalletScreen = ({ navigation }) => ( <ETHWallet navigation={navigation} /> );
 const BrowserScreen = ({ navigation }) => ( <Browser navigation={navigation} /> );
 const SettingsScreen = ({ navigation }) => ( <Settings navigation={navigation} /> );
 const HomeScreen = ({ navigation }) => ( <Home navigation={navigation} /> );
+const SendETHScreen = ({ navigation }) => ( <SendETH navigation={navigation} /> );
 
 export const AppNavigator = createBottomTabNavigator({
   Home: {
     screen: HomeScreen
   },
-  Browser: {
-    screen: BrowserScreen
+  SendETH: {
+    screen: SendETHScreen
   },
   ETHWallet: {
     screen: ETHWalletScreen
@@ -43,10 +45,8 @@ export const AppNavigator = createBottomTabNavigator({
             }
         } else if (routeName === 'ETHWallet') {
             iconName = `ios-wallet${focused ? '' : ''}`;
-        } else if (routeName === 'Welcome') {
-            iconName = `ios-contact${focused ? '' : ''}`;
-        } else if (routeName === 'Browser') {
-            iconName = `md-globe${focused ? '' : ''}`;
+        } else if (routeName === 'SendETH') {
+            iconName = `ios-send${focused ? '' : ''}`;
         } else if (routeName === 'Settings') {
           iconName = `md-settings${focused ? '' : ''}`;
       } 
