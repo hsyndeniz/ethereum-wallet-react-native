@@ -1,17 +1,34 @@
 import React, { Component } from 'react';
-import { View, Text, SafeAreaView } from 'react-native';
+import { View, Text, SafeAreaView, AsyncStorage } from 'react-native';
+import QRCode from 'react-native-qrcode-svg';
 
 class ETHWallet extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      wallet: {
+        address: 'loading'
+      }
     };
+  }
+
+  async componentDidMount() {
+    let wallet = await AsyncStorage.getItem('account');
+    wallet = JSON.parse(wallet);
+    console.log(wallet);
+    this.setState({ wallet });
   }
 
   render() {
     return (
-      <SafeAreaView style={{ backgroundColor: '#0A0F24', flex: 1 }}>
-        <Text> textInComponent </Text>
+      <SafeAreaView style={{ backgroundColor: '#0A0F24', flex: 1, alignContent: 'center', alignItems: 'center' }}>
+        <View style={{ marginTop: 200 }}>
+          <QRCode 
+            size={200}
+            color='#fff'
+            backgroundColor='#0A0F24'
+            value={this.state.wallet.address} />
+        </View>
       </SafeAreaView>
     );
   }

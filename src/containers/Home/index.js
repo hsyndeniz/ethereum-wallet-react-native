@@ -123,7 +123,8 @@ class Home extends Component {
             buttonColor="#131634"
             size={70}
             renderIcon={() => <Icon name="qrcode-scan" size={30} color="#4F8EF7" />}
-            onPress={() => this.props.navigation.navigate('QRCodeReader', { account: this.state.account, ETHBalance: this.state.ETHBalance })}
+            //onPress={() => this.props.navigation.navigate('QRCodeReader', { account: this.state.account, ETHBalance: this.state.ETHBalance })}
+            onPress={() => alert('Still working on this feature :D')}
           />
         </View>
       );
