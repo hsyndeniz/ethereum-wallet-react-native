@@ -41,13 +41,7 @@ class Welcome extends Component {
     try {
       await AsyncStorage.setItem('account', JSON.stringify(this.state.account));
       console.log('done');
-
-      const resetAction = StackActions.reset({
-        index: 0,
-        actions: [NavigationActions.navigate({ routeName: 'Home' })],
-      });
-      this.props.navigation.dispatch(resetAction);
-      
+      this.props.checkWallet();
     } catch (error) {
       console.log(error);
     }

@@ -1,17 +1,16 @@
 
-import { createBottomTabNavigator, createAppContainer } from "react-navigation";
+import { createBottomTabNavigator, createAppContainer, createStackNavigator } from "react-navigation";
 import React from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import IconWithBadge from './iconBadge';
-
-import Welcome from '../containers/Welcome';
 import ETHWallet from '../containers/ETHWallet';
 import Browser from '../containers/Browser';
 import Home from '../containers/Home';
+import Settings from "../containers/Settings";
 
 const ETHWalletScreen = ({ navigation }) => ( <ETHWallet navigation={navigation} /> );
 const BrowserScreen = ({ navigation }) => ( <Browser navigation={navigation} /> );
-const WelcomeScreen = ({ navigation }) => ( <Welcome navigation={navigation} /> );
+const SettingsScreen = ({ navigation }) => ( <Settings navigation={navigation} /> );
 const HomeScreen = ({ navigation }) => ( <Home navigation={navigation} /> );
 
 export const AppNavigator = createBottomTabNavigator({
@@ -24,8 +23,8 @@ export const AppNavigator = createBottomTabNavigator({
   ETHWallet: {
     screen: ETHWalletScreen
   },
-  Welcome: {
-    screen: WelcomeScreen
+  Settings: {
+    screen: SettingsScreen
   }
 }, {
     defaultNavigationOptions: ({ navigation }) => ({
@@ -48,7 +47,9 @@ export const AppNavigator = createBottomTabNavigator({
             iconName = `ios-contact${focused ? '' : ''}`;
         } else if (routeName === 'Browser') {
             iconName = `md-globe${focused ? '' : ''}`;
-        } 
+        } else if (routeName === 'Settings') {
+          iconName = `md-settings${focused ? '' : ''}`;
+      } 
         // You can return any component that you like here!
         return <IconComponent name={iconName} size={25} color={tintColor} />;
         },

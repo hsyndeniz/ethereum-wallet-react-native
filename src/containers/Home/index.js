@@ -28,7 +28,7 @@ class Home extends Component {
       },
       headerRight: (
         <TouchableOpacity style={{ marginRight: 10 }} onPress={() => navigation.navigate('Settings')}>
-            <Icon name="settings" size={28} color="#E5BF30" />
+            <Icon name="settings" size={28} color="#fff" />
         </TouchableOpacity>
       )
     }
@@ -52,7 +52,7 @@ class Home extends Component {
     try {
       const value = await AsyncStorage.getItem('account');
       if (value == null) {
-      } else {       
+      } else {
         this.setState({ account: JSON.parse(value) }, () => {
           this.getETHBalance();
           console.log(this.state);
