@@ -12,17 +12,23 @@ class Settings extends Component {
     super(props);
     this.state = {
     };
-    this.showWallet = this.showWallet.bind(this);
+    this.copyToClipboard = this.copyToClipboard.bind(this);
     this.deleteWallet = this.deleteWallet.bind(this);
   }
 
-  async showWallet() {
+  /**
+   * @method to export the private key by copying it to Clipboard
+   */
+  async copyToClipboard() {
     let wallet = await AsyncStorage.getItem('account');
     wallet = JSON.parse(wallet);
     Clipboard.setString(wallet.privateKey);
     alert('Your private key is copied to the clipboard.');
   }
 
+  /**
+   * @method to delete whole information(includes wallet)
+   */
   async deleteWallet() {
     await AsyncStorage.removeItem('account');
     const resetAction = StackActions.reset({
@@ -35,7 +41,7 @@ class Settings extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity style={{ width: '100%', alignSelf: 'center' }} onPress={() => { this.showWallet() }}>
+        <TouchableOpacity style={{ width: '100%', alignSelf: 'center' }} onPress={() => { this.copyToClipboard() }}>
           <Card.Body style={styles.card}>
             <View style={{ paddingVertical: 20 }} >
               <Text style={{ color: '#fff', fontSize: 20, textAlign: 'center', fontWeight: 'bold' }}> Backup Wallet </Text>

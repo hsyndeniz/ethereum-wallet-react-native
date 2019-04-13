@@ -23,6 +23,9 @@ export default class App extends Component {
     this.checkWallet();
   }
 
+  /**
+   * @method to check wallet in Localstorage 
+   */
   async checkWallet() {
     try {
       const value = await AsyncStorage.getItem('account');

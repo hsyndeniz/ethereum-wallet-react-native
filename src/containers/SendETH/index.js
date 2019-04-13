@@ -44,6 +44,9 @@ class SendEther extends Component {
     this.checkWallet();
   }
 
+  /**
+   * @method to check wallet in localstorage
+   */
   async checkWallet() {
     try {
       const value = await AsyncStorage.getItem('account');
@@ -59,6 +62,9 @@ class SendEther extends Component {
     }
   }
 
+  /**
+   * @method to fetch balance of wallet
+   */  
   async getETHBalance() {
     let balance = await web3.eth.getBalance(this.state.account.address);
     balance = web3.utils.fromWei(balance, 'ether');
@@ -67,8 +73,12 @@ class SendEther extends Component {
     await this.setState({ ETHBalance: Number(balance).toFixed(3) });
   }
 
+  /**
+   * @method to transfer Ether
+   */  
   async transferEther() {
     await this.setState({ dialogVisible: false })
+    // ETH address validation
     if (this.state.receiver === undefined || this.state.receiver.length !== 42 || web3.utils.isAddress(this.state.receiver) === false ) {
       Alert.alert(
         'Wrong Ethereum Address!',
@@ -100,6 +110,7 @@ class SendEther extends Component {
     };
 
     let tx = new EthereumTx(rawTransaction);
+    // sign transaction with private key
     tx.sign(privateKey);
     let serializedTx = tx.serialize();
 
@@ -111,6 +122,7 @@ class SendEther extends Component {
       ]
     );
 
+    // Send signed transaction to Ethereum blockchain
     web3.eth.sendSignedTransaction('0x' + serializedTx.toString('hex')).then(result => {
       console.log(result);
       
@@ -122,7 +134,6 @@ class SendEther extends Component {
         ]
       );
     }).catch(error => {
-      console.log(typeof error);
       console.log(error);
       this.setState({ error, receiver: undefined });
       

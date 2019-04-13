@@ -27,9 +27,11 @@ class Welcome extends Component {
 
   componentDidMount() {
     console.log(this.props);
-    //AsyncStorage.clear();
   }
 
+  /**
+   * @method to create new Ethereum wallet
+   */
   createWallet = async () => {
     const account = await web3.eth.accounts.create();
     console.log(account);
@@ -37,6 +39,9 @@ class Welcome extends Component {
     this.storeData();
   }
 
+  /**
+   * @method to store wallet info in localstorage
+   */
   storeData = async () => {
     try {
       await AsyncStorage.setItem('account', JSON.stringify(this.state.account));
@@ -47,6 +52,9 @@ class Welcome extends Component {
     }
   };
 
+  /**
+   * @method to retrieve wallet info from localstorage
+   */
   async retrieveData() {
     try {
       const value = await AsyncStorage.getItem('account');
@@ -56,6 +64,9 @@ class Welcome extends Component {
     }
   };
 
+  /**
+   * @method to restore Ethereum wallet from private key
+   */
   async restoreWallet() {
     console.log(this.state);
     

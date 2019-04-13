@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { View, Text, SafeAreaView, AsyncStorage } from 'react-native';
 import QRCode from 'react-native-qrcode-svg';
 
+/**
+ * @class ETH Wallet
+ */
 class ETHWallet extends Component {
   constructor(props) {
     super(props);
@@ -12,6 +15,9 @@ class ETHWallet extends Component {
     };
   }
 
+  /**
+   * @method to get wallet from localstorage
+   */
   async componentDidMount() {
     let wallet = await AsyncStorage.getItem('account');
     wallet = JSON.parse(wallet);

@@ -48,6 +48,9 @@ class Home extends Component {
     this.checkWallet();
   }
 
+  /**
+   * @method to check wallet in localstorage
+   */
   async checkWallet() {
     try {
       const value = await AsyncStorage.getItem('account');
@@ -63,6 +66,9 @@ class Home extends Component {
     }
   }
 
+  /**
+   * @method to fetch balance of wallet
+   */
   async getETHBalance() {
     let balance = await web3.eth.getBalance(this.state.account.address);
     balance = web3.utils.fromWei(balance, 'ether');

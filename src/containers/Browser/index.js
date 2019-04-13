@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { View, Text, SafeAreaView } from 'react-native';
 
-class SendETH extends Component {
+/**
+ * @class DAppBrowser
+ */
+class DAppBrowser extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,4 +20,4 @@ class SendETH extends Component {
   }
 }
 
-export default SendETH;
+export default DAppBrowser;
